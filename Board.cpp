@@ -5,16 +5,16 @@ private:
     char emptyLocation = ' ';
     char whiteLocation = 'W';
     char blackLocation = 'B';
-    int max_row = 7; //done
-    int max_col = 7; //done
+    int max_row = 7; 
+    int max_col = 7; 
 
 public:
-    Board(); //done
-    CoinLocation coinLocation[8][8]; //done
-    Coin white[16]; //done
-    Coin black[16]; //done
-    void setInitialCoinPositions(bool isWhiteCoinSetup); //done
-    void setUpCoinLocations(); //done
+    Board(); 
+    CoinLocation coinLocation[8][8]; 
+    Coin white[16]; 
+    Coin black[16]; 
+    void setInitialCoinPositions(bool isWhiteCoinSetup); 
+    void setUpCoinLocations(); 
     CoinPicked pickACoin(bool isWhiteCoin) {
         if (isWhiteCoin) {
             return pickAWhiteCoin();

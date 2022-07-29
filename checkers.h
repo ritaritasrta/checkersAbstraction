@@ -96,13 +96,13 @@ class Game {
 public:
     Game();
     Board stage;
-    void switchPlayer(); //DONE
+    void switchPlayer(); 
     void startGame();
     bool whoAmI;
-    void whoIsThePlayer(); //DONE
+    void whoIsThePlayer(); 
     bool move;
-    void canIMove(); //done
-    void makeMove(); //done
+    void canIMove(); 
+    void makeMove(); 
 };
 
 Game::Game() {
