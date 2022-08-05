@@ -41,7 +41,7 @@ public:
                     coinLocation[r][c].getCoinLocation();
                     m.setConditionsConstructor(coinLocation[r][c], coinLocation[r+2][c+2], coinLocation[r+1][c+1]);
                     return m;
-                }
+                } //do the same w r+1 c-1!!!!!!!
             }
         }
     }
@@ -50,6 +50,24 @@ public:
     CoinPicked pickABlackCoin() { //FINISH
         CoinPicked m;
         cout << "searching to pick a black coin to move" << endl;
+        for (int r = max_row; r >= 0; r--){
+            for (int c = max_col; c >= 0; c--) {
+                cout << "picked [" << r << "][" << c << "]" << endl;
+                if ((c == max_col && c > 5) && (coinLocation[r][c].mark == blackLocation)) {
+                    if (coinLocation[r-1][c+1].mark == emptyLocation) {
+                        cout << "Found the coin" << endl;
+                        coinLocation[r][c].getCoinLocation();
+                        m.setCoinPickedState(coinLocation[r][c], coinLocation[r-1][c+1]);
+                        return m; 
+                }
+                if ((coinLocation[r-1][c+1].mark == whiteLocation) && (coinLocation[r-2][c+2].mark == emptyLocation)) { //check same logic for white smth not right
+                    cout << "Found coin to kill" << endl;
+                    coinLocation[r][c].getCoinLocation();
+                    m.setConditionsConstructor(coinLocation[r][c], coinLocation[r-2][c+2], coinLocation[r+1][c+1]);
+                    return m;
+                } //do the same w r+1 c-1!!!!!!!
+            }
+        }
         return m;
     }
 };
